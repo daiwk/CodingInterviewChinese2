@@ -8,24 +8,24 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 *******************************************************************/
 
 //==================================================================
-// ¡¶½£Ö¸Offer¡ª¡ªÃûÆóÃæÊÔ¹Ù¾«½²µäÐÍ±à³ÌÌâ¡·´úÂë
-// ×÷Õß£ººÎº£ÌÎ
+// ï¿½ï¿½ï¿½ï¿½Ö¸Offerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¹Ù¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½â¡·ï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½ß£ï¿½ï¿½Îºï¿½ï¿½ï¿½
 //==================================================================
 
-// ÃæÊÔÌâ3£¨Ò»£©£ºÕÒ³öÊý×éÖÐÖØ¸´µÄÊý×Ö
-// ÌâÄ¿£ºÔÚÒ»¸ö³¤¶ÈÎªnµÄÊý×éÀïµÄËùÓÐÊý×Ö¶¼ÔÚ0µ½n-1µÄ·¶Î§ÄÚ¡£Êý×éÖÐÄ³Ð©Êý×ÖÊÇÖØ¸´µÄ£¬µ«²»ÖªµÀÓÐ¼¸¸öÊý×ÖÖØ¸´ÁË£¬
-// Ò²²»ÖªµÀÃ¿¸öÊý×ÖÖØ¸´ÁË¼¸´Î¡£ÇëÕÒ³öÊý×éÖÐÈÎÒâÒ»¸öÖØ¸´µÄÊý×Ö¡£ÀýÈç£¬Èç¹ûÊäÈë³¤¶ÈÎª7µÄÊý×é{2, 3, 1, 0, 2, 5, 3}£¬
-// ÄÇÃ´¶ÔÓ¦µÄÊä³öÊÇÖØ¸´µÄÊý×Ö2»òÕß3¡£
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½0ï¿½ï¿½n-1ï¿½Ä·ï¿½Î§ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä³Ð©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Öªï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½Ë£ï¿½
+// Ò²ï¿½ï¿½Öªï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½Ë¼ï¿½ï¿½Î¡ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¡ï¿½ï¿½ï¿½ï¿½ç£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë³¤ï¿½ï¿½Îª7ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½{2, 3, 1, 0, 2, 5, 3}ï¿½ï¿½
+// ï¿½ï¿½Ã´ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½
 
 #include <cstdio>
 
-// ²ÎÊý:
-//        numbers:     Ò»¸öÕûÊýÊý×é
-//        length:      Êý×éµÄ³¤¶È
-//        duplication: (Êä³ö) Êý×éÖÐµÄÒ»¸öÖØ¸´µÄÊý×Ö
-// ·µ»ØÖµ:             
-//        true  - ÊäÈëÓÐÐ§£¬²¢ÇÒÊý×éÖÐ´æÔÚÖØ¸´µÄÊý×Ö
-//        false - ÊäÈëÎÞÐ§£¬»òÕßÊý×éÖÐÃ»ÓÐÖØ¸´µÄÊý×Ö
+// ï¿½ï¿½ï¿½ï¿½:
+//        numbers:     Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//        length:      ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½
+//        duplication: (ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ò»ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½Öµ:             
+//        true  - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//        false - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 bool duplicate(int numbers[], int length, int* duplication)
 {
     if(numbers == nullptr || length <= 0)
@@ -47,7 +47,7 @@ bool duplicate(int numbers[], int length, int* duplication)
                 return true;
             }
 
-            // ½»»»numbers[i]ºÍnumbers[numbers[i]]             
+            // ï¿½ï¿½ï¿½ï¿½numbers[i]ï¿½ï¿½numbers[numbers[i]]             
             int temp = numbers[i];
             numbers[i] = numbers[temp];
             numbers[temp] = temp;
@@ -57,7 +57,7 @@ bool duplicate(int numbers[], int length, int* duplication)
     return false;
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½====================
 bool contains(int array[], int length, int number)
 {
     for(int i = 0; i < length; ++i)
@@ -92,7 +92,7 @@ void test(char* testName, int numbers[], int lengthNumbers, int expected[], int 
         printf("FAILED.\n");
 }
 
-// ÖØ¸´µÄÊý×ÖÊÇÊý×éÖÐ×îÐ¡µÄÊý×Ö
+// ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void test1()
 {
     int numbers[] = { 2, 1, 3, 1, 4 };
@@ -100,7 +100,7 @@ void test1()
     test("Test1", numbers, sizeof(numbers) / sizeof(int), duplications, sizeof(duplications) / sizeof(int), true);
 }
 
-// ÖØ¸´µÄÊý×ÖÊÇÊý×éÖÐ×î´óµÄÊý×Ö
+// ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void test2()
 {
     int numbers[] = { 2, 4, 3, 1, 4 };
@@ -108,7 +108,7 @@ void test2()
     test("Test2", numbers, sizeof(numbers) / sizeof(int), duplications, sizeof(duplications) / sizeof(int), true);
 }
 
-// Êý×éÖÐ´æÔÚ¶à¸öÖØ¸´µÄÊý×Ö
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void test3()
 {
     int numbers[] = { 2, 4, 2, 1, 4 };
@@ -116,7 +116,7 @@ void test3()
     test("Test3", numbers, sizeof(numbers) / sizeof(int), duplications, sizeof(duplications) / sizeof(int), true);
 }
 
-// Ã»ÓÐÖØ¸´µÄÊý×Ö
+// Ã»ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void test4()
 {
     int numbers[] = { 2, 1, 3, 0, 4 };
@@ -124,7 +124,7 @@ void test4()
     test("Test4", numbers, sizeof(numbers) / sizeof(int), duplications, sizeof(duplications) / sizeof(int), false);
 }
 
-// Ã»ÓÐÖØ¸´µÄÊý×Ö
+// Ã»ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void test5()
 {
     int numbers[] = { 2, 1, 3, 5, 4 };
@@ -132,7 +132,7 @@ void test5()
     test("Test5", numbers, sizeof(numbers) / sizeof(int), duplications, sizeof(duplications) / sizeof(int), false);
 }
 
-// ÎÞÐ§µÄÊäÈë
+// ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void test6()
 {
     int* numbers = nullptr;
@@ -140,7 +140,7 @@ void test6()
     test("Test6", numbers, 0, duplications, sizeof(duplications) / sizeof(int), false);
 }
 
-void main()
+int main()
 {
     test1();
     test2();
@@ -148,4 +148,5 @@ void main()
     test4();
     test5();
     test6();
+    return 0;
 }

@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.9)
+project(CodingInterviewChinese2)
+
+set(CMAKE_CXX_STANDARD 11)
+
+add_executable(bin_01 01_AssignmentOperator/AssignmentOperator.cpp)
+add_executable(bin_03_01 03_01_DuplicationInArray/FindDuplication.cpp)
+add_executable(bin_03_02 03_02_DuplicationInArrayNoEdit/FindDuplicationNoEdit.cpp)
